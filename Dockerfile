@@ -14,6 +14,16 @@ RUN npm install pm2 -g && \
 # Copy application code
 COPY . .
 
+# IMPORTANT: Declare Railway environment variables as build args
+ARG GMAIL_USER
+ARG GMAIL_APP_PASSWORD
+ARG NODE_ENV=production
+
+# Make them available as environment variables at runtime
+ENV GMAIL_USER=$GMAIL_USER
+ENV GMAIL_APP_PASSWORD=$GMAIL_APP_PASSWORD
+ENV NODE_ENV=$NODE_ENV
+
 # Create non-root user for security
 RUN addgroup -g 1001 -S nodejs && \
     adduser -S nodejs -u 1001

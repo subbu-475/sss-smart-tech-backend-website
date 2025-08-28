@@ -2,8 +2,16 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 const path = require('path');
-require('dotenv').config({ path: "./.env" });
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config({ path: "./.env" });
+}
 
+// Add debugging
+console.log('=== Environment Variables Check ===');
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('GMAIL_USER:', process.env.GMAIL_USER ? 'SET' : 'NOT SET');
+console.log('GMAIL_APP_PASSWORD:', process.env.GMAIL_APP_PASSWORD ? 'SET' : 'NOT SET');
+console.log('======================================');
 
 const app = express();
 app.use(cors());
