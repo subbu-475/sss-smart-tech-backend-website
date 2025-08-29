@@ -9,8 +9,8 @@ if (process.env.NODE_ENV !== 'production') {
 // Add debugging
 console.log('=== Environment Variables Check ===');
 console.log('NODE_ENV:', process.env.NODE_ENV);
-console.log('GMAIL_USER:', process.env.GMAIL_USER );
-console.log('GMAIL_APP_PASSWORD:', process.env.GMAIL_APP_PASSWORD );
+console.log('GMAIL_USER:', process.env.GMAIL_USER ? 'Set' : 'Not Set');
+console.log('GMAIL_APP_PASSWORD:', process.env.GMAIL_APP_PASSWORD ? 'Set' : 'Not Set');
 console.log('======================================');
 
 const app = express();
